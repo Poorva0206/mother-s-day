@@ -403,17 +403,21 @@ const cards=document.querySelectorAll('.memory-card');
 const music =
 document.getElementById('bgMusic');
 
-/* START MUSIC ON FIRST CLICK */
-
-document.body.addEventListener('click',()=>{
-
-  music.play();
-
-},{ once:true });
+let musicStarted=false;
 
 balloons.forEach(balloon=>{
 
   balloon.addEventListener('click',()=>{
+
+    /* START MUSIC */
+
+    if(!musicStarted){
+
+      music.play();
+
+      musicStarted=true;
+
+    }
 
     let index=balloon.dataset.card;
 
@@ -434,7 +438,7 @@ balloons.forEach(balloon=>{
 
 });
 
-/* FLOWER POP EFFECT */
+/* FLOWER EFFECT */
 
 function createFlowers(){
 
@@ -464,6 +468,5 @@ function createFlowers(){
 }
 
 </script>
-
 </body>
 </html>
