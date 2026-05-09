@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surprise Mumma 💖</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  position:relative;
+
+  background:
+  linear-gradient(
+  to right,
+  #fbe4e6 0%,
+  #f6ede3 50%,
+  #f9dfe7 100%
+  );
+
+  padding:40px 20px;
+}
+
+/* FLOATING FLOWERS */
+
+.flowers{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.flowers span{
+  position:absolute;
+  bottom:-120px;
+  font-size:30px;
+  color:#c05a7a;
+  opacity:.75;
+  animation:flowerFloat linear infinite;
+  text-shadow:0 0 10px rgba(192,90,122,.25);
+}
+
+.flowers span:nth-child(1){
+  left:5%;
+  animation-duration:12s;
+}
+
+.flowers span:nth-child(2){
+  left:18%;
+  animation-duration:9s;
+  font-size:24px;
+}
+
+.flowers span:nth-child(3){
+  left:32%;
+  animation-duration:14s;
+}
+
+.flowers span:nth-child(4){
+  left:48%;
+  animation-duration:10s;
+  font-size:22px;
+}
+
+.flowers span:nth-child(5){
+  left:62%;
+  animation-duration:13s;
+}
+
+.flowers span:nth-child(6){
+  left:76%;
+  animation-duration:11s;
+}
+
+.flowers span:nth-child(7){
+  left:88%;
+  animation-duration:15s;
+  font-size:26px;
+}
+
+.flowers span:nth-child(8){
+  left:95%;
+  animation-duration:10s;
+}
+
+@keyframes flowerFloat{
+
+  0%{
+    transform:
+    translateY(0)
+    rotate(0deg);
+
+    opacity:.75;
+  }
+
+  100%{
+    transform:
+    translateY(-140vh)
+    rotate(360deg);
+
+    opacity:.75;
+  }
+
+}
+
+/* TITLE */
+
+.title{
+  text-align:center;
+  font-family:'Dancing Script',cursive;
+  font-size:5rem;
+  color:#8b5e6c;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#9b7b86;
+  margin-bottom:50px;
+  font-size:1.1rem;
+}
+
+/* BALLOONS */
+
+.balloon-container{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:50px;
+  justify-items:center;
+  max-width:900px;
+  margin:auto;
+}
+
+.balloon{
+  width:140px;
+  cursor:pointer;
+  animation:float 2.5s ease-in-out infinite;
+  transition:.4s;
+}
+
+.balloon:hover{
+  transform:scale(1.05);
+}
+
+@keyframes float{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+}
+
+/* MEMORY CARDS */
+
+.memory-grid{
+  margin-top:70px;
+  display:grid;
+  grid-template-columns:repeat(3,260px);
+  justify-content:center;
+  gap:30px;
+}
+
+.memory-card{
+  background:rgba(255,255,255,.45);
+  backdrop-filter:blur(10px);
+  border-radius:24px;
+  padding:14px;
+  display:none;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.memory-card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  border-radius:18px;
+}
+
+.memory-card p{
+  margin-top:12px;
+  color:#7b5b66;
+  line-height:1.6;
+  text-align:center;
+}
+
+.show{
+  display:block;
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* FLOWER POP EFFECT */
+
+.flower-pop{
+  position:fixed;
+  color:#ff4f8b;
+  animation:flowerPop 4s linear forwards;
+  z-index:999;
+  text-shadow:0 0 10px rgba(255,79,139,.4);
+}
+
+@keyframes flowerPop{
+
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+
+  100%{
+    transform:
+    translateY(-100vh)
+    rotate(360deg)
+    scale(2);
+
+    opacity:0;
+  }
+
+}
+
+/* FINAL MESSAGE */
+
+.final-message{
+  margin-top:80px;
+  text-align:center;
+  padding:40px 25px;
+}
+
+.final-message h2{
+  font-family:'Dancing Script',cursive;
+  font-size:3.5rem;
+  color:#9c5b74;
+  margin-bottom:20px;
+}
+
+.final-message p{
+  max-width:700px;
+  margin:auto;
+  color:#7b5b66;
+  line-height:2;
+  font-size:1.05rem;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .memory-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .title{
+    font-size:3.5rem;
+  }
+
+  .balloon-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .balloon{
+    width:110px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING FLOWERS -->
+
+<div class="flowers">
+
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+  <span>✿</span>
+
+</div>
+
+<!-- TITLE -->
+
+<h1 class="title">
+  Surprise Mumma 💖
+</h1>
+
+<p class="subtitle">
+  Pop all balloons for surprises ✨
+</p>
+
+<!-- BALLOONS -->
+
+<div class="balloon-container">
+
+  <img src="balloon.png" class="balloon" data-card="0">
+  <img src="balloon.png" class="balloon" data-card="1">
+  <img src="balloon.png" class="balloon" data-card="2">
+  <img src="balloon.png" class="balloon" data-card="3">
+  <img src="balloon.png" class="balloon" data-card="4">
+  <img src="balloon.png" class="balloon" data-card="5">
+
+</div>
+
+<!-- MEMORY CARDS -->
+
+<div class="memory-grid">
+
+  <div class="memory-card">
+    <img src="a.jpeg">
+    <p>You make every bad day feel softer 🤍</p>
+  </div>
+
+  <div class="memory-card">
+    <img src="b.jpg">
+    <p>Your hugs still fix everything 🫶</p>
+  </div>
+
+  <div class="memory-card">
+    <img src="c.jpg">
+    <p>I got lucky having you as my mom 🌸</p>
+  </div>
+
+  <div class="memory-card">
+    <img src="d.jpg">
+    <p>Home will always feel like you ✨</p>
+  </div>
+
+  <div class="memory-card">
+    <img src="e.jpg">
+    <p>Thank you for every little sacrifice 💖</p>
+  </div>
+
+  <div class="memory-card">
+    <img src="f.jpg">
+    <p>You are my comfort person forever 🥹</p>
+  </div>
+
+</div>
+
+<!-- FINAL MESSAGE -->
+
+<div class="final-message">
+
+  <h2>I Love You Mumma 💖</h2>
+
+  <p>
+    No matter how old I grow,
+    I’ll always need your hugs,
+    your comfort,
+    and your love.
+    <br><br>
+
+    Thank you for being my safest place,
+    my biggest support system,
+    and the softest part of my heart ✿
+    <br><br>
+
+    I got really lucky getting you as my mumma 🥹
+  </p>
+
+</div>
+
+<script>
+
+const balloons=document.querySelectorAll('.balloon');
+const cards=document.querySelectorAll('.memory-card');
+
+balloons.forEach(balloon=>{
+
+  balloon.addEventListener('click',()=>{
+
+    let index=balloon.dataset.card;
+
+    balloon.style.transform='scale(1.8)';
+    balloon.style.opacity='0';
+
+    createFlowers();
+
+    setTimeout(()=>{
+
+      balloon.style.display='none';
+
+      cards[index].classList.add('show');
+
+    },400);
+
+  });
+
+});
+
+/* FLOWER POP EFFECT */
+
+function createFlowers(){
+
+  for(let i=0;i<20;i++){
+
+    let flower=document.createElement('div');
+
+    flower.classList.add('flower-pop');
+
+    flower.innerHTML='✿';
+
+    flower.style.left=Math.random()*100+'vw';
+
+    flower.style.top=Math.random()*100+'vh';
+
+    flower.style.fontSize=
+    (Math.random()*25+15)+'px';
+
+    document.body.appendChild(flower);
+
+    setTimeout(()=>{
+      flower.remove();
+    },4000);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
