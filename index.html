@@ -292,6 +292,12 @@ body{
 
 <body>
 
+<!-- MUSIC -->
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mp3">
+</audio>
+
 <!-- FLOATING FLOWERS -->
 
 <div class="flowers">
@@ -393,6 +399,17 @@ body{
 
 const balloons=document.querySelectorAll('.balloon');
 const cards=document.querySelectorAll('.memory-card');
+
+const music =
+document.getElementById('bgMusic');
+
+/* START MUSIC ON FIRST CLICK */
+
+document.body.addEventListener('click',()=>{
+
+  music.play();
+
+},{ once:true });
 
 balloons.forEach(balloon=>{
 
