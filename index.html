@@ -138,7 +138,7 @@ body{
 
 .balloon-container{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:50px;
   justify-items:center;
   max-width:900px;
@@ -295,7 +295,7 @@ body{
 <!-- MUSIC -->
 
 <audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mp3">
+  <source src="./song.mp3" type="audio/mpeg">
 </audio>
 
 <!-- FLOATING FLOWERS -->
@@ -397,29 +397,42 @@ body{
 
 <script>
 
-const balloons=document.querySelectorAll('.balloon');
-const cards=document.querySelectorAll('.memory-card');
+const balloons =
+document.querySelectorAll('.balloon');
+
+const cards =
+document.querySelectorAll('.memory-card');
 
 const music =
 document.getElementById('bgMusic');
 
-let musicStarted=false;
+let started = false;
 
 balloons.forEach(balloon=>{
 
-  balloon.addEventListener('click',()=>{
+  balloon.addEventListener('click', async ()=>{
 
     /* START MUSIC */
 
-    if(!musicStarted){
+    if(!started){
 
-      music.play();
+      try{
 
-      musicStarted=true;
+        await music.play();
+
+        started = true;
+
+      }catch(err){
+
+        console.log(err);
+
+      }
 
     }
 
-    let index=balloon.dataset.card;
+    /* POP BALLOON */
+
+    let index = balloon.dataset.card;
 
     balloon.style.transform='scale(1.8)';
     balloon.style.opacity='0';
@@ -450,9 +463,11 @@ function createFlowers(){
 
     flower.innerHTML='✿';
 
-    flower.style.left=Math.random()*100+'vw';
+    flower.style.left=
+    Math.random()*100+'vw';
 
-    flower.style.top=Math.random()*100+'vh';
+    flower.style.top=
+    Math.random()*100+'vh';
 
     flower.style.fontSize=
     (Math.random()*25+15)+'px';
@@ -468,5 +483,6 @@ function createFlowers(){
 }
 
 </script>
+
 </body>
 </html>
